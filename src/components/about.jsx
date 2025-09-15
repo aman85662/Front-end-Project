@@ -5,22 +5,22 @@ import { SplitText } from "gsap/all"
 
 const About = () => {
     useGSAP(() => {
-        const titlesplit = SplitText.create('about h2', {
+        const titlesplit = new SplitText('.about', {
             type: 'words'
-        })
+        });
         const ScrollTimeline = gsap.timeline({
             scrollTrigger: {
-                trigger: 'about',
+                trigger: '#about',
                 start: 'top center',
             }
-        })
+        });
         ScrollTimeline.from(titlesplit.words, {
-            opacity:0, duration:1, ypercentage:100, stagger:0.1, ease:'expo.out'
+            opacity: 0, duration: 1, yPercent: 100, stagger: 0.1, ease: 'expo.out'
         })
         .from('.top-grid div, .bottom-grid div', {
-            opacity:0, duration:1, ypercentage:100, stagger:0.04, ease:'power1.inOut'
-        },'-0.5')
-    })
+            opacity: 0, duration: 1, yPercent: 100, stagger: 0.04, ease: 'power1.inOut'
+        }, '-=0.5');
+    });
 
     return (
       <div id='about'>
@@ -28,7 +28,7 @@ const About = () => {
               <div className='content'>
                   <div className='md:col-span-8'>
                       <p className='badge'>Best Cocktails</p>
-                      <h2>
+                      <h2 className="about">
                           Where every detail matters<span className='text-white'>-</span>
                           from muddle to garnish
                       </h2>
